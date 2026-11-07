@@ -122,6 +122,9 @@ $("render").addEventListener("click", async () => {
       renderedBlob=new Blob(chunks,{type:recorder.mimeType||mimeType});
       if(renderedURL)URL.revokeObjectURL(renderedURL);
       renderedURL=URL.createObjectURL(renderedBlob);
+$("output").src = renderedURL;
+$("output").hidden = false;
+$("outputHint").hidden = true;
       $("download").disabled=false;$("share").disabled=false;$("render").disabled=false;
       setStatus(`Render ready · ${(renderedBlob.size/1024/1024).toFixed(1)} MB · ${recorder.mimeType||mimeType}`);
       stream.getTracks().forEach(t=>t.stop());
