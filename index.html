@@ -88,6 +88,15 @@ footer{color:#7e8b82;font-size:11px;text-align:center;padding:10px}
 <div class="help">The renderer records the video canvas and mixes optional music. Supported export format depends on your browser (usually WebM on Android Chrome).</div>
 <div class="actions" style="margin-top:15px"><button class="btn ghost" id="play" disabled>▶ Preview source</button><button class="btn primary" id="render" disabled>Render ad</button></div>
 <div class="status" id="status" role="status" aria-live="polite">Waiting for footage.</div>
+<div class="field" style="margin-top:12px">
+  <label for="output">Finished ad preview</label>
+  <video id="output" playsinline controls hidden
+    style="width:100%;border-radius:12px;background:#080b09">
+  </video>
+  <div class="help" id="outputHint">
+    The finished video will appear here after rendering.
+  </div>
+</div>
 <div class="actions" style="margin-top:10px"><button class="btn" id="download" disabled>Download video</button><button class="btn" id="share" disabled>Share</button></div>
 </section>
 <section class="panel">
