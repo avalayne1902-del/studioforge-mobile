@@ -1,115 +1,214 @@
-<!doctype html>
-<html lang="de">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#101613">
-<meta name="description" content="StudioForge — mobile-first product ad studio. Edit and render ads locally in your browser.">
-<link rel="manifest" href="manifest.webmanifest">
-<title>StudioForge — Product Ad Studio</title>
-<style>
-:root{--bg:#0d1210;--panel:#151d19;--panel2:#1b2620;--line:#2b3931;--text:#f1f4ef;--muted:#a6b3aa;--mint:#b8e6c8;--gold:#d8c49a;--danger:#ffb4a9}
-*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 85% -10%,#26372d 0,transparent 38%),var(--bg);color:var(--text);font:15px/1.45 system-ui,-apple-system,Segoe UI,sans-serif}
-button,input,select,textarea{font:inherit}button{cursor:pointer}
-.app{max-width:980px;margin:auto;padding:env(safe-area-inset-top) 16px calc(26px + env(safe-area-inset-bottom))}
-header{display:flex;align-items:center;justify-content:space-between;padding:18px 0 22px}
-.brand{display:flex;gap:11px;align-items:center}.mark{width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,#c5ebd1,#879d84);display:grid;place-items:center;color:#152019;font-weight:900;font-size:19px}
-.brand strong{letter-spacing:.13em;font-size:13px}.brand small{display:block;color:var(--muted);letter-spacing:.02em;font-size:11px}
-.pill{border:1px solid #415449;border-radius:99px;padding:7px 10px;color:var(--mint);font-size:11px;letter-spacing:.08em}
-h1{font-size:clamp(27px,6vw,42px);line-height:1.08;letter-spacing:-.04em;margin:8px 0 10px;max-width:680px}
-.lead{color:var(--muted);max-width:640px;margin:0 0 22px}
-.layout{display:grid;grid-template-columns:1.08fr .92fr;gap:14px;align-items:start}
-.panel{background:linear-gradient(180deg,#19221d,#131a16);border:1px solid var(--line);border-radius:20px;padding:16px;margin-bottom:14px;box-shadow:0 12px 34px #0002}
-.panel h2{font-size:14px;letter-spacing:.09em;text-transform:uppercase;color:var(--mint);margin:0 0 14px}
-.preview{position:relative;overflow:hidden;border-radius:14px;background:#080b09;aspect-ratio:16/9;display:grid;place-items:center}
-.preview video{width:100%;height:100%;object-fit:contain;background:#080b09}
-.empty{padding:24px;text-align:center;color:var(--muted)}.empty b{display:block;color:var(--text);margin-bottom:6px}
-.previewOverlay{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:8%;pointer-events:none;background:linear-gradient(transparent 42%,#07100bd9)}
-.previewOverlay .eyebrow{font-size:clamp(8px,2vw,12px);letter-spacing:.18em;color:#d7e7d9;font-weight:700}
-.previewOverlay .headline{font-size:clamp(17px,4.5vw,36px);font-weight:800;line-height:1.02;max-width:90%;letter-spacing:-.04em;text-wrap:balance}
-.previewOverlay .sub{font-size:clamp(9px,2vw,15px);color:#e4e9e4;margin-top:8px}
-.previewOverlay .cta{align-self:flex-start;margin-top:13px;border:1px solid #d7e7d9;border-radius:3px;padding:6px 10px;font-size:clamp(8px,1.7vw,12px);letter-spacing:.1em;font-weight:700}
-.field{margin:0 0 12px}.field label{display:block;font-size:12px;color:var(--muted);margin:0 0 6px}
-input,textarea,select{width:100%;background:#0e1511;color:var(--text);border:1px solid #34443a;border-radius:10px;padding:11px 12px;outline:none}
-input:focus,textarea:focus,select:focus{border-color:var(--mint);box-shadow:0 0 0 2px #b8e6c822}
-textarea{min-height:66px;resize:vertical}
-.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.file{border:1px dashed #597061;border-radius:12px;padding:14px;background:#101813}
-.file input{padding:0;border:0;background:transparent}
-.btn{border:1px solid #52685a;background:#202d25;color:var(--text);border-radius:11px;padding:11px 14px;font-weight:650}
-.btn.primary{background:var(--mint);color:#142019;border-color:var(--mint)}
-.btn.ghost{background:transparent}.btn:disabled{opacity:.45;cursor:not-allowed}
-.actions{display:flex;gap:9px;flex-wrap:wrap}.actions .btn{flex:1}
-.help{font-size:11px;color:var(--muted);margin-top:8px}
-.status{margin-top:12px;border-radius:10px;background:#0e1711;border:1px solid #314338;padding:10px;color:var(--muted);font-size:12px;min-height:40px}
-.kpis{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.kpi{background:#202b24;border:1px solid #35453a;border-radius:9px;padding:7px 9px;font-size:11px;color:#d7e3d9}
-footer{color:#7e8b82;font-size:11px;text-align:center;padding:10px}
-@media(max-width:760px){.layout{grid-template-columns:1fr}.app{padding-left:12px;padding-right:12px}.panel{padding:14px}.preview{aspect-ratio:16/9}}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#10121b">
+  <meta name="description" content="StudioForge — automatic mobile advertising video studio">
+  <title>StudioForge Auto Ad Studio</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg:#10121b; --panel:#191d2a; --panel2:#202638;
+      --text:#f4f5fa; --muted:#a5aec1; --accent:#8b7cff;
+      --line:#30384c; --green:#56d6a0;
+    }
+    * { box-sizing:border-box }
+    body {
+      margin:0; background:var(--bg); color:var(--text);
+      font-family:Inter,system-ui,-apple-system,sans-serif;
+    }
+    header {
+      padding:22px 18px 18px;
+      background:linear-gradient(130deg,#252044,#151a2a 65%,#102a35);
+      border-bottom:1px solid var(--line);
+    }
+    .brand { display:flex; align-items:center; gap:11px }
+    .logo {
+      width:42px;height:42px;border-radius:13px;
+      display:grid;place-items:center;
+      background:linear-gradient(135deg,#9a85ff,#48d9c0);
+      color:#10121b;font-size:22px;font-weight:900;
+    }
+    h1 {font-size:21px;margin:0;letter-spacing:-.5px}
+    header p {color:var(--muted);font-size:13px;margin:7px 0 0}
+    main {max-width:760px;margin:auto;padding:16px 14px 50px}
+    .section {
+      background:var(--panel);border:1px solid var(--line);
+      border-radius:17px;padding:16px;margin-bottom:14px;
+    }
+    .section h2 {font-size:16px;margin:0 0 5px}
+    .hint {font-size:12px;line-height:1.5;color:var(--muted);margin:0 0 14px}
+    label {display:block;font-size:12px;color:#c5cce0;margin:13px 0 6px}
+    input,textarea,select {
+      width:100%;border:1px solid var(--line);border-radius:11px;
+      padding:12px;background:#111624;color:var(--text);
+      font:inherit;font-size:14px;outline:none;
+    }
+    textarea {min-height:112px;resize:vertical;line-height:1.5}
+    input:focus,textarea:focus,select:focus {border-color:var(--accent)}
+    input[type=file] {padding:11px;font-size:12px}
+    .grid {display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .button {
+      border:0;border-radius:12px;padding:13px 15px;
+      background:var(--accent);color:white;font-weight:750;
+      font-size:14px;cursor:pointer;width:100%;
+    }
+    .button.secondary {
+      background:var(--panel2);border:1px solid var(--line);color:var(--text);
+    }
+    .button.green {background:#236e57}
+    .button:disabled {opacity:.45;cursor:not-allowed}
+    .actions {display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:13px}
+    .image-grid {
+      display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px;
+    }
+    .image-grid img {
+      width:100%;aspect-ratio:1;object-fit:cover;
+      border-radius:10px;border:1px solid var(--line);
+    }
+    .preview-wrap {
+      background:#080a10;border:1px solid var(--line);
+      border-radius:14px;overflow:hidden;
+    }
+    canvas {display:block;width:100%;height:auto;background:#090b12}
+    video {display:block;width:100%;max-height:65vh;background:#050608}
+    .scene {
+      background:#111624;border:1px solid var(--line);
+      padding:12px;border-radius:12px;margin-top:9px;
+    }
+    .scene strong {font-size:13px}
+    .scene p {font-size:12px;color:var(--muted);margin:6px 0 0;line-height:1.45}
+    .pill {
+      display:inline-block;background:#292548;color:#c7bcff;
+      border-radius:20px;padding:5px 9px;font-size:11px;margin:4px 4px 0 0;
+    }
+    .status {font-size:12px;color:var(--muted);margin-top:10px;min-height:18px}
+    .progress {height:6px;background:#30384c;border-radius:8px;overflow:hidden;margin-top:8px}
+    .progress div {height:100%;width:0;background:linear-gradient(90deg,#8b7cff,#56d6a0)}
+    .small {font-size:11px;color:var(--muted);line-height:1.5}
+    .footer {text-align:center;color:#778198;font-size:11px;padding:10px}
+    @media(max-width:420px) {
+      .grid {grid-template-columns:1fr}
+      .image-grid {grid-template-columns:repeat(3,1fr)}
+      main {padding-left:10px;padding-right:10px}
+    }
+  </style>
 </head>
 <body>
-<div class="app">
-<header><div class="brand"><div class="mark">S</div><div><strong>STUDIOFORGE</strong><small>LOCAL PRODUCT AD STUDIO</small></div></div><span class="pill">NO AI CREDITS · LOCAL RENDER</span></header>
-<h1>Turn product footage<br>into a <span style="color:var(--mint)">premium ad.</span></h1>
-<p class="lead">A compact editing studio designed for your phone. Add a video, shape the message, preview the layout and render directly in your browser — without a video-generation subscription.</p>
-<div class="layout">
-<main>
-<section class="panel">
-<h2>01 / Your footage</h2>
-<div class="file"><div class="field"><label for="videoFile">Choose a product video</label><input id="videoFile" type="file" accept="video/*"></div><div class="help">The video stays on your device. For best results, use a short source clip (under 2 minutes).</div></div>
-<div class="preview" style="margin-top:13px">
-<video id="source" playsinline muted controls hidden></video>
-<div class="empty" id="empty"><b>Your preview appears here</b>Upload a video to begin.</div>
-<div class="previewOverlay" id="overlay" hidden><div class="eyebrow" id="pvBrand">STUDIO EDITION</div><div class="headline" id="pvHeadline">A better way to live.</div><div class="sub" id="pvSub">Thoughtful details. Everyday comfort.</div><div class="cta" id="pvCta">DISCOVER MORE</div></div>
-</div>
-<div class="kpis"><span class="kpi" id="sourceInfo">No source loaded</span><span class="kpi">Canvas render</span><span class="kpi">No upload required</span></div>
-</section>
-<section class="panel">
-<h2>02 / Brand & message</h2>
-<div class="field"><label for="brand">Brand / product name</label><input id="brand" value="STUDIO EDITION" maxlength="42"></div>
-<div class="field"><label for="headline">Main headline</label><input id="headline" value="A better way to live." maxlength="72"></div>
-<div class="field"><label for="subline">Supporting benefit</label><textarea id="subline" maxlength="130">Thoughtful details. Everyday comfort.</textarea></div>
-<div class="field"><label for="cta">Call to action</label><input id="cta" value="DISCOVER MORE" maxlength="28"></div>
-<div class="row">
-<div class="field"><label for="ratio">Video format</label><select id="ratio"><option value="16:9">Landscape · 16:9</option><option value="9:16">Vertical · 9:16</option><option value="1:1">Square · 1:1</option></select></div>
-<div class="field"><label for="theme">Visual mood</label><select id="theme"><option value="dark">Dark luxury</option><option value="light">Warm minimal</option><option value="sage">Natural sage</option></select></div>
-</div>
-</section>
-</main>
-<aside>
-<section class="panel">
-<h2>03 / Edit & export</h2>
-<div class="row">
-<div class="field"><label for="start">Start (seconds)</label><input id="start" type="number" min="0" step=".1" value="0"></div>
-<div class="field"><label for="end">End (seconds)</label><input id="end" type="number" min="0" step=".1" placeholder="Full clip"></div>
-</div>
-<div class="field"><label for="quality">Export quality</label><select id="quality"><option value="5">Balanced · 5 Mbps</option><option value="8" selected>High · 8 Mbps</option><option value="12">Very high · 12 Mbps</option></select></div>
-<div class="field"><label for="musicFile">Optional background music</label><input id="musicFile" type="file" accept="audio/*"></div>
-<div class="help">The renderer records the video canvas and mixes optional music. Supported export format depends on your browser (usually WebM on Android Chrome).</div>
-<div class="actions" style="margin-top:15px"><button class="btn ghost" id="play" disabled>▶ Preview source</button><button class="btn primary" id="render" disabled>Render ad</button></div>
-<div class="status" id="status" role="status" aria-live="polite">Waiting for footage.</div>
-<div class="field" style="margin-top:12px">
-  <label for="output">Finished ad preview</label>
-  <video id="output" playsinline controls hidden
-    style="width:100%;border-radius:12px;background:#080b09">
-  </video>
-  <div class="help" id="outputHint">
-    The finished video will appear here after rendering.
-  </div>
-</div>
-<div class="actions" style="margin-top:10px"><button class="btn" id="download" disabled>Download video</button><button class="btn" id="share" disabled>Share</button></div>
-</section>
-<section class="panel">
-<h2>04 / Built-in ad structure</h2>
-<div style="display:grid;gap:11px">
-<div><b style="color:var(--mint)">HOOK · 0–3 sec</b><div class="help">Lead with the strongest product or lifestyle frame.</div></div>
-<div><b style="color:var(--mint)">DESIRE · middle</b><div class="help">Show the product in context. Make the customer benefit clear.</div></div>
-<div><b style="color:var(--mint)">ACTION · final 3 sec</b><div class="help">Brand, concise message and a direct next step.</div></div>
-</div>
-</section>
-</aside>
-</div>
-<footer>StudioForge runs locally in this browser. It does not upload your footage or promise unlimited device performance.</footer>
-</div>
-<script src="app.js"></script>
-</body></html>
+  <header>
+    <div class="brand">
+      <div class="logo">S</div>
+      <div>
+        <h1>StudioForge</h1>
+        <p>Auto Ad Studio · Mobile Creative Engine</p>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <h2>01 · Your product and content</h2>
+      <p class="hint">Add your product images and paste any available product information. The studio will turn your material into an advertising concept.</p>
+
+      <label for="productName">Product or brand name</label>
+      <input id="productName" placeholder="e.g. Aurora — Smart Lighting">
+
+      <label for="sourceText">Your text and product information</label>
+      <textarea id="sourceText" placeholder="Paste anything here: product description, website text, features, customer benefits, target audience, offer, campaign idea..."></textarea>
+
+      <label for="images">Product images, photos or visual material</label>
+      <input id="images" type="file" accept="image/*" multiple>
+      <div id="imagePreview" class="image-grid"></div>
+      <p class="small">Use clear product photos where possible. Multiple images give the storyboard more visual variety.</p>
+    </section>
+
+    <section class="section">
+      <h2>02 · Advertising direction</h2>
+      <p class="hint">Choose the output format and creative direction. Automatic mode creates a suggested sequence from your material.</p>
+
+      <div class="grid">
+        <div>
+          <label for="format">Video format</label>
+          <select id="format">
+            <option value="9:16">Vertical · 9:16</option>
+            <option value="16:9">Landscape · 16:9</option>
+            <option value="1:1">Square · 1:1</option>
+          </select>
+        </div>
+        <div>
+          <label for="duration">Video length</label>
+          <select id="duration">
+            <option value="15">15 seconds</option>
+            <option value="30" selected>30 seconds</option>
+            <option value="45">45 seconds</option>
+            <option value="60">60 seconds</option>
+          </select>
+        </div>
+        <div>
+          <label for="style">Creative style</label>
+          <select id="style">
+            <option value="premium">Premium / Luxury</option>
+            <option value="cinematic">Cinematic</option>
+            <option value="modern">Modern / Technology</option>
+            <option value="minimal">Minimal / Elegant</option>
+            <option value="energetic">Dynamic / Energetic</option>
+          </select>
+        </div>
+        <div>
+          <label for="tone">Advertising tone</label>
+          <select id="tone">
+            <option value="persuasive">Persuasive</option>
+            <option value="emotional">Emotional</option>
+            <option value="confident">Confident</option>
+            <option value="informative">Informative</option>
+            <option value="playful">Playful</option>
+          </select>
+        </div>
+      </div>
+
+      <label for="cta">Call to action (optional)</label>
+      <input id="cta" placeholder="e.g. Discover it now · Shop today · Learn more">
+
+      <button id="analyseBtn" class="button" style="margin-top:16px">
+        Analyse content & create storyboard
+      </button>
+      <div id="analysisStatus" class="status" aria-live="polite"></div>
+    </section>
+
+    <section class="section">
+      <h2>03 · Generated advertising concept</h2>
+      <p class="hint">Review the proposed message and scenes before rendering.</p>
+      <div id="analysisResult" class="small">Your advertising analysis will appear here.</div>
+      <div id="storyboard"></div>
+    </section>
+
+    <section class="section">
+      <h2>04 · Video preview</h2>
+      <p class="hint">Preview the generated visual composition. Rendering takes place directly in your browser.</p>
+      <div class="preview-wrap">
+        <canvas id="previewCanvas" width="720" height="1280"></canvas>
+      </div>
+      <div class="actions">
+        <button id="previewBtn" class="button secondary" disabled>Preview scenes</button>
+        <button id="renderBtn" class="button green" disabled>Render video</button>
+      </div>
+      <div id="renderStatus" class="status" aria-live="polite"></div>
+      <div class="progress"><div id="progressBar"></div></div>
+      <div id="videoResult" style="margin-top:13px">
+        <video id="output" controls playsinline hidden></video>
+        <p id="outputHint" class="small">Your finished video will appear here after rendering.</p>
+      </div>
+      <div class="actions">
+        <a id="downloadLink" class="button secondary" hidden style="text-align:center;text-decoration:none" download="studioforge-ad.webm">Download video</a>
+        <button id="shareBtn" class="button secondary" disabled>Share video</button>
+      </div>
+    </section>
+
+    <p class="footer">StudioForge · Local-first creative studio · Your content stays in your browser</p>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
